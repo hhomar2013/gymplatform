@@ -40,7 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'cpanel' => [
+            'driver' => 'session',
+            'provider' => 'cpanel',
+        ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +68,11 @@ return [
 
     'providers' => [
         'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'cpanel' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
@@ -93,6 +105,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'cpanel' => [
+            'provider' => 'cpanel',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
