@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControlPanel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,9 @@ Route::group(
 
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/cp', [ControlPanel::class, 'index'])->name('ControlPanel.index');
+
 
 });
 
